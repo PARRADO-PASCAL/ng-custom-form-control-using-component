@@ -1,0 +1,15 @@
+<ng-container [ngTemplateOutlet]="getTemplate()"></ng-container>
+
+
+<ng-template #defaultTemplate>
+<!-- RAJOUTER UN COMPOSANT DE VUE-->
+<label [for]="name" >{{label}} </label>
+<input type="text" [id]="name" [name]="name" [(ngModel)]="value" [ngStyle]="inputStyle" (blur)="onBlur()" (input)="onInput()"/>
+
+</ng-template>
+
+<ng-template #mobileTemplate>
+<!-- RAJOUTER UN COMPOSANT DE VUE-->
+<label [for]="name" >{{label}} (Votre numéro doit contenir un 06 au début)</label>
+<input type="text" [id]="name" [name]="name" [(ngModel)]="value" [ngStyle]="inputStyle" (blur)="onBlur()" (input)="onInput()"/>
+</ng-template>

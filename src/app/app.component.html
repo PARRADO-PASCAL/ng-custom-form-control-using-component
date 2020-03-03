@@ -1,0 +1,32 @@
+<form [formGroup]="form" (ngSubmit)="logForm(form.value)" class="blockthem" >
+  <state-selector  formControlName="state" ></state-selector>
+
+
+  <app-input  formControlName="firstName" [label]="'FirstName'" [showState]="'input'" [valid]="form.get('firstName').valid"
+  [dirty]="form.get('firstName').dirty"></app-input>
+
+
+  
+  <app-input-test  [label]="'LastName'" formControlName="lastName" [showState]="'blur'"></app-input-test>
+
+  <app-input-content  [label]="'Mobile Phone'" formControlName="mobilePhone" [showState]="'blur'" templateType="telephone"></app-input-content>
+
+
+<!-- ultime component -->
+<app-test formControlName="test" [showState]="'input'"></app-test>
+
+
+
+<!-- implementation plus claire -->
+<label style="color:red;margin-top:100px">L'implémentation du composant juste au dessous est plus claire</label>
+<phone-form-control  [label]="'Un tel'" formControlName="tel" [showState]="'input'" ></phone-form-control>
+  <button type="submit">Submit</button>
+</form>
+
+<h2>Current selection:</h2>
+<h3>{{form.get('state').value}}</h3>
+<h3>{{form.get('firstName').value}}</h3>
+<h3>{{form.get('lastName').value}}</h3>
+<h3>{{form.get('mobilePhone').value}}</h3>
+<h3>{{form.get('test').value}}</h3>
+<h3>{{form.get('tel').value}}</h3>

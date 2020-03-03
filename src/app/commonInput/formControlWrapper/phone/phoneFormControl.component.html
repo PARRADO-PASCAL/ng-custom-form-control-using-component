@@ -1,0 +1,7 @@
+<app-input-telephone
+  [label]="'Voici un numéro de téléphonezz'"
+  [name]="ngControl.name"
+  [val]="value"
+  [valid]="isValid()"
+  (valOUT)="value = $event"
+></app-input-telephone>
