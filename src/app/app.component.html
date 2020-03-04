@@ -21,7 +21,7 @@
 <label style="color:red;margin-top:100px">L'implémentation du composant juste au dessous est plus claire</label>
 <label>0607040580==> valid</label>
 <label>0707040580==> invalid</label>
-<phone-form-control  [label]="'Un tel'" formControlName="tel" [showState]="'blur'" ></phone-form-control>
+<phone-form-control  [label]="'Un tel'" formControlName="tel" [showState]="'input'" [errors]="errors.tel"></phone-form-control>
   <button type="submit">Submit</button>
 </form>
 

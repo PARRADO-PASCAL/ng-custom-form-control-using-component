@@ -1,7 +1,7 @@
 import { Component, Input, forwardRef, Injector, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS, NgControl } from '@angular/forms';
 
-export abstract class BaseFormControlWrapperComponent implements ControlValueAccessor, OnInit  {
+export abstract class BaseFormControlWrapperComponent implements ControlValueAccessor  {
 
   @Input('value') val = '';
   @Input() showState: string;
@@ -14,13 +14,7 @@ export abstract class BaseFormControlWrapperComponent implements ControlValueAcc
   onTouched: any = () => { };
 
   isValid = false;
-
-  constructor(public injector: Injector){}
-
-  ngOnInit() {
-    this.ngControl = this.injector.get(NgControl);
-    if (this.ngControl != null) { this.ngControl.valueAccessor = this; }
-  }
+  libellesErrors;
 
   get value() {
     return this.val;
@@ -47,6 +41,15 @@ export abstract class BaseFormControlWrapperComponent implements ControlValueAcc
   }
 
   manageErrors() {
+    this.libellesErrors = [];
+
+    // Gestion des erreurs
+    if (this.ngControl.errors) {
+      for(let key of Object.keys(this.ngControl.errors)) {
+        this.libellesErrors.push(this.errors[key]); 
+      }
+    }
     this.isValid = this.ngControl && this.ngControl.dirty && this.ngControl.valid;
+    console.log(this.ngControl.errors);
   }
 }

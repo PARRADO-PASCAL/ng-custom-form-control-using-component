@@ -23,13 +23,12 @@ export class PhoneFormControl extends BaseFormControlWrapperComponent implements
   ngControl: NgControl;
 
    constructor(public injector: Injector){
-     super(injector);
+     super();
    }
 
   ngOnInit() {
     this.ngControl = this.injector.get(NgControl);
     if (this.ngControl != null) { this.ngControl.valueAccessor = this; }
-    
   }
 
   onBlur() {

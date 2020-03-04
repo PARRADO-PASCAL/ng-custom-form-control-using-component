@@ -26,8 +26,8 @@ export class AppComponent implements OnInit {
     this.errors = {
       tel: {
         pattern: 'Votre téléphone ne correspond pas il doit commencer par 06',
-        minLength: 'Taille minimum 10!',
-        maxLength: 'Taille maximum 14!',
+        minlength: 'Taille minimum 10!',
+        maxlength: 'Taille maximum 14!',
       }
     }
   } 
