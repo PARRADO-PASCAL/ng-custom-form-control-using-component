@@ -1,20 +1,7 @@
 import { Component, Input, forwardRef, Injector, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS, NgControl } from '@angular/forms';
 
-/**
- * Implementing form control custom with access to valid and dirty within 
- * the component
- */
-@Component({
-   providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => BaseFormControlWrapperComponent),
-      multi: true
-    }
-  ]
-})
-export class BaseFormControlWrapperComponent implements ControlValueAccessor, OnInit  {
+export abstract class BaseFormControlWrapperComponent implements ControlValueAccessor, OnInit  {
 
   @Input('value') val = '';
   @Input() showState: string;
