@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AppComponent implements OnInit {
 
   public form: FormGroup;
+  public errors;
 
   constructor(private fb: FormBuilder) {}
 
@@ -21,5 +22,13 @@ export class AppComponent implements OnInit {
       test: this.fb.control('', [Validators.minLength(5), Validators.maxLength(5)]),
       tel: this.fb.control('', [Validators.pattern('^06[0-9]*$'),Validators.minLength(10), Validators.maxLength(14)])
     });
+
+    this.errors = {
+      tel: {
+        pattern: 'Votre téléphone ne correspond pas il doit commencer par 06',
+        minLength: 'Taille minimum 10!',
+        maxLength: 'Taille maximum 14!',
+      }
+    }
   } 
 }

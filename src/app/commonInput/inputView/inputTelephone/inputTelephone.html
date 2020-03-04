@@ -1,4 +1,11 @@
 <label [for]="name" >{{label}} </label>
-<input type="text" [id]="name" [name]="name" [value]="val" (input)="onInput($event)" (blur)="onBlur($event)"/>
+<input type="text" [id]="name" [name]="name" [value]="val" (input)="onInput($event)" (blur)="onBlur($event)"
+style="position:relative;"/>
 <label *ngIf="valid"> VALID</label>
 <label *ngIf="!valid"> NOT VALID</label>
+
+<label>
+  <ul>
+    <li *ngFor="let error of errors"> {{error}}</li>
+  </ul>
+</label>

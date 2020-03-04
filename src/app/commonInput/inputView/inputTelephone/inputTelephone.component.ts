@@ -14,6 +14,7 @@ export class AppInputTelephoneComponent {
     @Input() val = '';
     @Input() label: string;
     @Input() valid: string;
+    @Input() errors: string[];
 
     @Output() valChange = new EventEmitter();
 
