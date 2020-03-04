@@ -6,6 +6,7 @@ export abstract class BaseFormControlWrapperComponent implements ControlValueAcc
   @Input('value') val = '';
   @Input() showState: string;
   @Input() label: string;
+  @Input() errors: Array<any>;
 
   ngControl: NgControl;
 
@@ -43,5 +44,9 @@ export abstract class BaseFormControlWrapperComponent implements ControlValueAcc
     if (value) {
       this.value = value;
     }
+  }
+
+  manageErrors() {
+    this.isValid = this.ngControl && this.ngControl.dirty && this.ngControl.valid;
   }
 }

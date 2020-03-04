@@ -34,13 +34,13 @@ export class PhoneFormControl extends BaseFormControlWrapperComponent implements
 
   onBlur() {
     if (this.showState === 'blur') {
-      this.isValid = this.ngControl && this.ngControl.dirty && this.ngControl.valid; 
+      this.manageErrors();
     }
   }
 
   onInput() {
     if (this.showState === 'input') {
-      this.isValid = this.ngControl && this.ngControl.dirty && this.ngControl.valid; 
+      this.manageErrors();
     }
   }
 
