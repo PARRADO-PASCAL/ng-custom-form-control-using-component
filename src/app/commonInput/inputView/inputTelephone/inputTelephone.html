@@ -1,4 +1,4 @@
 <label [for]="name" >{{label}} </label>
-<input type="text" [id]="name" [name]="name" [value]="val" (input)="valChange.emit($event.target.value)"/>
+<input type="text" [id]="name" [name]="name" [value]="val" (input)="onInput($event)" (blur)="onBlur($event)"/>
 <label *ngIf="valid"> VALID</label>
 <label *ngIf="!valid"> NOT VALID</label>

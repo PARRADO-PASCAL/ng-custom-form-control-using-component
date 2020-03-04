@@ -16,4 +16,16 @@ export class AppInputTelephoneComponent {
     @Input() valid: string;
 
     @Output() valChange = new EventEmitter();
+
+    @Output() blur = new EventEmitter();
+    @Output() input = new EventEmitter();
+
+    onBlur($event) {
+      this.blur.emit();
+    }
+
+    onInput($event) {
+      this.valChange.emit($event.target.value);
+      this.input.emit();
+    }
 }

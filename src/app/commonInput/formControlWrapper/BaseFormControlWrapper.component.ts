@@ -57,12 +57,4 @@ export class BaseFormControlWrapperComponent implements ControlValueAccessor, On
       this.value = value;
     }
   }
-
-  onBlur() {
-    this.isValid = this.ngControl && this.ngControl.dirty && this.ngControl.valid && this.showState === 'blur';
-  }
-
-  onInput() {
-    this.isValid = this.ngControl && this.ngControl.dirty && this.ngControl.valid && this.showState === 'blur';
-  }
 }

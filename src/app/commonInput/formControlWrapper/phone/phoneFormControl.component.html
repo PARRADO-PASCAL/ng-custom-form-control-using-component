@@ -3,4 +3,6 @@
   [name]="ngControl.name"
   [(val)]="value"
   [valid]="isValid"
+  (blur)="onBlur()"
+  (input)="onInput()"
 ></app-input-telephone>
