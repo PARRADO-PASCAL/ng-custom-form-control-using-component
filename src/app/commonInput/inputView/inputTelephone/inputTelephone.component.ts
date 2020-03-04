@@ -7,7 +7,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS, NgControl } fro
  */
 @Component({
   selector: 'app-input-telephone',
-  templateUrl: './inputTelephone.html'
+  templateUrl: './inputTelephone.html',
 })
 export class AppInputTelephoneComponent {
     @Input() name: string;
@@ -15,5 +15,5 @@ export class AppInputTelephoneComponent {
     @Input() label: string;
     @Input() valid: string;
 
-    @Output() valOUT = new EventEmitter();
+    @Output() valChange = new EventEmitter();
 }

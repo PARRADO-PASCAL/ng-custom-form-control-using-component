@@ -19,20 +19,8 @@ import {BaseFormControlWrapperComponent} from '../BaseFormControlWrapper.compone
   templateUrl: './phoneFormControl.component.html'
 })
 export class PhoneFormControl extends BaseFormControlWrapperComponent implements OnInit{
-@Input() name: string;
-  @Input('value')
-  val = '';
-  @Input() showState: string;
-  @Input() label: string;
 
   ngControl: NgControl;
-
-  inputStyle = {
-    borderColor: "unset"
-  };
-
-  onChange: any = () => { };
-  onTouched: any = () => { };
 
    constructor(public injector: Injector){
      super(injector);
@@ -41,9 +29,10 @@ export class PhoneFormControl extends BaseFormControlWrapperComponent implements
   ngOnInit() {
     this.ngControl = this.injector.get(NgControl);
     if (this.ngControl != null) { this.ngControl.valueAccessor = this; }
+    
   }
 
-  isValid() {
-    return this.ngControl && this.ngControl.dirty && this.ngControl.valid;
+  ngOnChanges() {
+    console.log(this.isValid);
   }
 }

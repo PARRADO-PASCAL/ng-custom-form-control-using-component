@@ -16,25 +16,22 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS, NgControl } fro
 })
 export class BaseFormControlWrapperComponent implements ControlValueAccessor, OnInit  {
 
-  @Input('value')
-  val: string;
+  @Input('value') val = '';
   @Input() showState: string;
   @Input() label: string;
 
   ngControl: NgControl;
 
-  inputStyle = {
-    borderColor: "unset"
-  };
-
   onChange: any = () => { };
   onTouched: any = () => { };
+
+  isValid = false;
 
   constructor(public injector: Injector){}
 
   ngOnInit() {
     this.ngControl = this.injector.get(NgControl);
-   if (this.ngControl != null) { this.ngControl.valueAccessor = this; }
+    if (this.ngControl != null) { this.ngControl.valueAccessor = this; }
   }
 
   get value() {
@@ -61,29 +58,11 @@ export class BaseFormControlWrapperComponent implements ControlValueAccessor, On
     }
   }
 
-  resetStyle() {
-    this.inputStyle.borderColor = "unset";
-  }
-
   onBlur() {
-    if (this.ngControl.dirty && this.showState === 'blur') {
-      if(this.ngControl.valid) {
-        this.inputStyle.borderColor = "green";
-      }
-      else {
-         this.inputStyle.borderColor = "red";
-      }
-    }
+    this.isValid = this.ngControl && this.ngControl.dirty && this.ngControl.valid && this.showState === 'blur';
   }
 
   onInput() {
-    if (this.ngControl.dirty && this.showState === 'input') {
-      if(this.ngControl.valid) {
-        this.inputStyle.borderColor = "green";
-      }
-      else {
-         this.inputStyle.borderColor = "red";
-      }
-    }
+    this.isValid = this.ngControl && this.ngControl.dirty && this.ngControl.valid && this.showState === 'blur';
   }
 }
