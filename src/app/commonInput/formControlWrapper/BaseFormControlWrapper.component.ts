@@ -50,6 +50,5 @@ export abstract class BaseFormControlWrapperComponent implements ControlValueAcc
       }
     }
     this.isValid = this.ngControl && this.ngControl.dirty && this.ngControl.valid;
-    console.log(this.ngControl.errors);
   }
 }
